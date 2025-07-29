@@ -1,0 +1,31 @@
+# Source files (not needed in package)
+src/
+test/
+examples/
+
+# Development files
+.cursor/
+.vscode/
+.yarn/
+.yarnrc.yml
+
+# Build artifacts (will be regenerated)
+coverage/
+*.log
+
+# Development configs
+tsconfig.json
+tsconfig.jest.json
+jest.config.js
+.eslintrc.js
+.prettierrc
+
+# Git files
+.git/
+.gitignore
+
+# Documentation (optional - you might want to include README.md)
+# README.md
+
+# Lock files (yarn.lock will be included by default)
+# yarn.lock 

@@ -1,8 +1,40 @@
 {
   "name": "@thorium-dev-group/x402-mcp-extension",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "X402-MCP Protocol Extension",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "mcp",
+    "x402",
+    "payment",
+    "protocol",
+    "ai",
+    "model-context-protocol",
+    "crypto",
+    "blockchain"
+  ],
+  "author": "Thorium Dev Group",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thorium-dev-group/x402-mcp-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thorium-dev-group/x402-mcp-extension/issues"
+  },
+  "homepage": "https://github.com/thorium-dev-group/x402-mcp-extension#readme",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "clean": "rimraf dist",
     "build": "tsc",
@@ -11,7 +43,9 @@
     "lint": "eslint src --ext .ts",
     "run-server": "node dist/examples/server/server.js",
     "run-client": "node dist/examples/client/client.js",
-    "test-harness": "npm run build && npm run run-server & sleep 2 && npm run run-client && kill %1"
+    "test-harness": "npm run build && npm run run-server & sleep 2 && npm run run-client && kill %1",
+    "prepublishOnly": "npm run clean && npm run build && npm test",
+    "prepack": "npm run build"
   },
   "packageManager": "yarn@4.6.0",
   "jest": {
