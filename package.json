@@ -1,6 +1,6 @@
 {
   "name": "@thorium-dev-group/x402-mcp-extension",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "X402-MCP Protocol Extension",
   "main": "dist/index.js",
   "scripts": {
