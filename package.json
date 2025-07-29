@@ -1,0 +1,74 @@
+{
+  "name": "@thorium-dev-group/x402-mcp-extension",
+  "version": "0.1.0",
+  "description": "X402-MCP Protocol Extension",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "lint": "eslint src --ext .ts",
+    "run-server": "node dist/examples/server/server.js",
+    "run-client": "node dist/examples/client/client.js",
+    "test-harness": "npm run build && npm run run-server & sleep 2 && npm run run-client && kill %1"
+  },
+  "packageManager": "yarn@4.6.0",
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": ".",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": [
+        "ts-jest",
+        {
+          "useESM": false,
+          "tsconfig": "tsconfig.jest.json"
+        }
+      ]
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jose|@coinbase/x402|@coinbase/cdp-sdk)/)"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.(t|j)s"
+    ],
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@coinbase/x402": "^0.4.1",
+    "@modelcontextprotocol/sdk": "^1.15.1",
+    "async-mutex": "^0.5.0",
+    "express": "^4.18.2",
+    "winston": "^3.11.0",
+    "x402": "^0.4.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@monorepo-utils/workspaces-to-typescript-project-references": "^2.10.4",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.3.1",
+    "@types/reflect-metadata": "^0.1.0",
+    "@types/winston": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "dotenv": "^17.2.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "jest": "^29.5.0",
+    "prettier": "^3.0.0",
+    "reflect-metadata": "^0.2.2",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.2"
+  }
+}
